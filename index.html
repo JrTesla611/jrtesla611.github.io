@@ -11,6 +11,9 @@
       margin: 0;
       padding: 0;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
       background-color: #4CAF50;
@@ -28,6 +31,7 @@
     section {
       padding: 40px 20px;
       margin: 20px 0;
+      flex-grow: 1;
     }
     h2 {
       color: #4CAF50;
@@ -46,10 +50,6 @@
       padding: 15px;
       text-align: center;
     }
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-    }
     .contact a {
       display: inline-block;
       margin: 5px;
@@ -62,8 +62,6 @@
       color: white;
       text-align: center;
       padding: 10px 0;
-      position: absolute;
-      bottom: 0;
       width: 100%;
     }
     .bio-image {
@@ -94,7 +92,8 @@
     <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can’t wait to see where this journey takes me!</p>
   </section>
 
-  <section id="projects">
+
+<section id="projects">
     <h2>My Projects</h2>
     <div class="projects">
       <div class="project">
@@ -110,6 +109,32 @@
         <p>I'm making a rocket that uses paraffin wax (fuel) and O2 (oxidizer).</p>
       </div>
     </div>
+
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>1st Place – School Rocket Competition</h3>
+        <p>Won 1st place in the school-level rocket competition in 2024.</p>
+      </div>
+      <div class="project">
+        <h3>3rd Place – Robofest International</h3>
+        <p>Secured 3rd place in Robofest International 2023, showcasing robotics innovation.</p>
+      </div>
+      <div class="project">
+        <h3>3rd Place – SASMO</h3>
+        <p>Awarded 3rd place in the 2022 Singapore and Asian Schools Math Olympiad.</p>
+      </div>
+      <div class="project">
+        <h3>1st Place – TEDx Fibonacci</h3>
+        <p>Delivered a top-ranked speech at TEDx Fibonacci in 2025.</p>
+      </div>
+      <div class="project">
+        <h3>3rd Place – ITECX25</h3>
+        <p>Achieved 3rd place in the ITECX25 innovation competition in 2025.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
@@ -117,8 +142,13 @@
     <div class="contact">
       <a href="mailto:cahadabdulla@gmail.com">Email Me</a>
       <a href="https://x.com/AbdullaCahad" target="_blank">Twitter</a>
+      <a href="https://www.instagram.com/jahadabdulla/">Instagram</a>
     </div>
   </section>
+
+  <footer>
+    <p>© 2025 Jahad Abdulla</p>
+  </footer>
 
 </body>
 </html>
