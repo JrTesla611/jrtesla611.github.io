@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jahad Abdulla | Bio</title>
   <style>
+    /* General Styles */
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f7f7;
       margin: 0;
       padding: 0;
       color: #333;
@@ -15,71 +16,183 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
     header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      font-size: 1.2em;
-    }
+  background-color: #1e2a3a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  font-weight: 600;
+  text-align: left; /* Ensures the title aligns left */
+}
+
+header p {
+  font-size: 1.2em;
+  font-weight: 300;
+  text-align: left; /* Aligns the paragraph left as well */
+}
+
+
+
+
+    /* Section Styles */
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       margin: 20px 0;
       flex-grow: 1;
     }
+
     h2 {
-      color: #4CAF50;
+      color: #1e2a3a;
+      font-size: 2.5em;
+      border-bottom: 2px solid #1e2a3a;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      font-weight: 400;
     }
-    .projects {
+
+    .projects, .achievements {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
     }
-    .project {
+
+    .project, .achievement {
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       width: 30%;
       margin: 15px;
-      padding: 15px;
+      padding: 20px;
       text-align: center;
+      transition: transform 0.3s;
     }
+
+    .project:hover, .achievement:hover {
+      transform: translateY(-5px);
+    }
+
+    .project h3, .achievement h3 {
+      font-size: 1.5em;
+      color: #1e2a3a;
+    }
+
+    .project p, .achievement p {
+      font-size: 1em;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Contact Section */
     .contact a {
       display: inline-block;
-      margin: 5px;
-      color: #4CAF50;
+      margin: 10px;
+      color: #1e2a3a;
       text-decoration: none;
       font-size: 1.1em;
+      border: 2px solid #1e2a3a;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s;
     }
+
+    .contact a:hover {
+      background-color: #1e2a3a;
+      color: white;
+    }
+
+    /* Footer Styles */
     footer {
-      background-color: #333;
+      background-color: #1e2a3a;
       color: white;
       text-align: center;
-      padding: 10px 0;
-      width: 100%;
+      padding: 20px 0;
+      font-size: 1em;
     }
+
+    /* Image Styles */
     .bio-image {
       border-radius: 50%;
       width: 150px;
       height: 150px;
       object-fit: cover;
       margin-top: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
+    /* Search Box Container */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Search Input Style */
+.search-container input {
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 2px solid #ddd;
+  outline: none;
+  transition: all 0.3s;
+  background-color: #f5f5f5;
+}
+
+/* Search Button Style */
+.search-container button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Button Hover Effect */
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Focus Effect for Input */
+.search-container input:focus {
+  border-color: #007bff;
+  background-color: #ffffff;
+}
+
   </style>
 </head>
 <body>
 
+
   <header>
     <h1>Jahad Abdulla</h1>
     <p>Engineer | Innovator | Creator</p>
+    <div class="search-container">
+        <!-- Simple search form -->
+        <form action="search.html" method="GET">
+          <input type="text" name="q" placeholder="Search..." />
+          <button type="submit">Search</button>
+        </form>
+      </div>
   </header>
 
+  
+  
+ 
+  
+  
   <section id="about">
     <h2>About Me</h2>
     <p>Hi! My name is Jahad Abdulla, and I’m a 7th grader from Baku, Azerbaijan. From a young age, I’ve always been fascinated by how things work, especially when it comes to technology and innovation. Whether it’s electronics, robotics, or creating new gadgets, I’ve always loved diving into projects that allow me to explore the endless possibilities of the tech world.</p>
@@ -92,12 +205,102 @@
     <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can’t wait to see where this journey takes me!</p>
   </section>
 
+  <!-- Interactive Timeline -->
+<section id="timeline">
+    <h2>My Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>2022: First Robotics Project</h3>
+        <p>Designed and built my first autonomous robot, which could identify objects and perform simple tasks.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>2023: AI Integration</h3>
+        <p>Started integrating AI-based systems into my robotics projects, including using machine learning algorithms for object detection.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>2024: PCB Design & AI Server</h3>
+        <p>Worked on custom PCB designs for embedded systems and built a dedicated AI server with advanced cooling solutions.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>2025: Teknofest & Global Recognition</h3>
+        <p>Participated in Teknofest with an autonomous vehicle project and gained recognition in the tech community.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="projects">
+  <!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">
+        <h3>Robotics</h3>
+        <div class="skill-bar" style="width: 80%"></div>
+      </div>
+      <div class="skill">
+        <h3>AI & Machine Learning</h3>
+        <div class="skill-bar" style="width: 70%"></div>
+      </div>
+      <div class="skill">
+        <h3>Embedded Systems</h3>
+        <div class="skill-bar" style="width: 75%"></div>
+      </div>
+      <div class="skill">
+        <h3>PCB Design</h3>
+        <div class="skill-bar" style="width: 65%"></div>
+      </div>
+      <div class="skill">
+        <h3>All important Coding Languages</h3>
+        <div class="skill-bar" style="width: 65%"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <h2 style="text-align: center; font-size: 30px; color: #333; margin-bottom: 20px;">My Journey To Teknofest</h2>
+    <div style="width: 100%; height: 200px; position: relative; background-color: #f4f4f4; border-radius: 10px; padding: 20px 0;">
+      
+      <!-- Timeline Ruler -->
+
+      
+      <!-- Milestone 1: Going to School -->
+      <div style="position: absolute; left: 5%; text-align: center; top: -50px; z-index: 1;">
+        <div style="font-size: 40px; color: #3498db;">🛠️</div>
+        <p style="font-size: 16px; color: #333;">Creating Team</p>
+      </div>
+      
+      <!-- Milestone 2: Learning Python -->
+      <div style="position: absolute; left: 25%; text-align: center; top: -50px; z-index: 1;">
+        <div style="font-size: 40px; color: #3498db;">🛠️</div>
+        <p style="font-size: 16px; color: #333;">ODR</p>
+      </div>
+      
+      <!-- Milestone 3: First Project -->
+      <div style="position: absolute; left: 45%; text-align: center; top: -50px; z-index: 1;">
+        <div style="font-size: 40px; color: #3498db;">💡</div>
+        <p style="font-size: 16px; color: #333;">PDR-</p>
+      </div>
+      
+      <!-- Milestone 4: Hackathons -->
+      <div style="position: absolute; left: 65%; text-align: center; top: -50px; z-index: 1;">
+        <div style="font-size: 40px; color: #3498db;">💡</div>
+        <p style="font-size: 16px; color: #333;">Presentation-</p>
+      </div>
+      
+      <!-- Milestone 5: Building Projects -->
+      <div style="position: absolute; left: 85%; text-align: center; top: -50px; z-index: 1;">
+        <div style="font-size: 40px; color: #3498db;">🏆</div>
+        <p style="font-size: 16px; color: #333;">Competetion-</p>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <section id="projects">
     <h2>My Projects</h2>
     <div class="projects">
       <div class="project">
-        <h3>Project Water Rocket </h3>
+        <h3>Project Water Rocket</h3>
         <p>I made a water rocket for a competition in my school.</p>
       </div>
       <div class="project">
@@ -109,37 +312,35 @@
         <p>I'm making a rocket that uses paraffin wax (fuel) and O2 (oxidizer).</p>
       </div>
     </div>
-
+  </section>
 
   <section id="achievements">
     <h2>Achievements</h2>
-    <div class="projects">
-      <div class="project">
+    <div class="achievements">
+      <div class="achievement">
         <h3>1st Place – School Rocket Competition</h3>
         <p>Won 1st place in the school-level rocket competition in 2024.</p>
       </div>
-      <div class="project">
+      <div class="achievement">
         <h3>3rd Place – Robofest International</h3>
         <p>Secured 3rd place in Robofest International 2023, showcasing robotics innovation.</p>
       </div>
-      <div class="project">
+      <div class="achievement">
         <h3>3rd Place – SASMO</h3>
         <p>Awarded 3rd place in the 2022 Singapore and Asian Schools Math Olympiad.</p>
       </div>
-      <div class="project">
+      <div class="achievement">
         <h3>1st Place – TEDx Fibonacci</h3>
         <p>Awarded 1st place in Fibonacci in 2025.</p>
       </div>
-      <div class="project">
+      <div class="achievement">
         <h3>3rd Place – ITECX25</h3>
         <p>Achieved 3rd place in the ITECX25 innovation competition in 2025.</p>
       </div>
-    
-      <div class="project">
-        <h3>Tedx-Why Should Studentds Use AI</h3>
-        <p>Talked about AI in TEDx Kaspi liseyi Youth in 2024.</p>
+      <div class="achievement">
+        <h3>Tedx-Why Should Students Use AI</h3>
+        <p>Talked about AI in TEDx Kaspi Liseyi Youth in 2024.</p>
       </div>
-      
     </div>
   </section>
 
@@ -158,3 +359,4 @@
 
 </body>
 </html>
+
