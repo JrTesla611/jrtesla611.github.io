@@ -186,12 +186,30 @@
       border-color: #007bff;
       background-color: #ffffff;
     }
+
+        .logo {
+      width: 150px; /* Adjust the size */
+      height: 150px; /* Adjust the size */
+      border-radius: 50%; /* Makes it a circle */
+      overflow: hidden; /* Ensures the image fits in the circle */
+      border: 5px solid #fff; /* Optional: adds a border around the circle */
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image covers the whole circle without distortion */
+    }
+
   </style>
 </head>
 <body>
 
 
   <header>
+    <div class="logo">
+      <img src="photo1.png" alt="Its me" />
+    </div>
     <h1>Jahad Abdulla</h1><br>
     <p>Engineer | Innovator | Creator</p>
     <div class="search-container">
@@ -347,7 +365,7 @@
         <p>Awarded 3rd place in the 2022 Singapore and Asian Schools Math Olympiad.</p>
       </div>
       <div class="achievement">
-        <h3>1st Place – TEDx Fibonacci</h3>
+        <h3>1st Place – Fibonacci</h3>
         <p>Awarded 1st place in Fibonacci in 2025.</p>
       </div>
       <div class="achievement">
@@ -357,6 +375,10 @@
       <div class="achievement">
         <h3>Tedx-Why Should Students Use AI</h3>
         <p>Talked about AI in TEDx Kaspi Liseyi Youth in 2024.</p>
+      </div>
+      <div class="achievement">
+        <h3>1st Place – Robotex</h3>
+        <p>Achieved 1st place in the Robotex Autonomous Car competition in 2025.</p>
       </div>
     </div>
   </section>
@@ -377,5 +399,4 @@
 
 </body>
 </html>
-
 
