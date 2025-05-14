@@ -1,402 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jahad Abdulla | Bio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jahad Abdulla | AI/ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f7f7f7;
+    * {
       margin: 0;
       padding: 0;
-      color: #333;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f1f1f1;
+      color: #111;
+    }
+    header {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background-color: #1e2a3a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      background: linear-gradient(120deg, #eaeaea 50%, #000 50%);
+      color: #000;
+      padding: 40px;
+      min-height: 100vh;
+      position: relative;
+      text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      font-weight: 600;
-      text-align: left; 
-      color: red;
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #000;
     }
-
-    header p {
-      font-size: 1.2em;
-      font-weight: 300;
-      text-align: left;
+    header .info h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
-
-    .header-box {
-      background-color: #f2f2f2; /* Light background for the box */
-      padding: 20px; /* Padding inside the box */
-      border-radius: 10px; /* Rounded corners */
-      border: 2px solid #ccc; /* Light border around the box */
-      width: fit-content; /* Box size adjusts to fit content */
-    }
-
-    /* Section Styles */
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      color: #333333;
-    }
-
-    section {
-      padding: 60px 20px;
-      margin: 20px 0;
-      flex-grow: 1;
-    }
-
-    h2 {
-      color: #1e2a3a;
-      font-size: 2.5em;
-      border-bottom: 2px solid #1e2a3a;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
+    header .info h2 {
+      font-size: 1.2rem;
       font-weight: 400;
     }
-
-    .projects, .achievements {
+    header .socials {
+      margin-top: 20px;
+    }
+    header .socials a {
+      margin: 0 5px;
+    }
+    header .socials img {
+      width: 24px;
+    }
+    header .photo img {
+      max-height: 300px;
+      margin-top: 20px;
+    }
+    nav {
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      gap: 15px;
+      justify-content: center;
     }
-
-    .project, .achievement {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 30%;
-      margin: 15px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .project:hover, .achievement:hover {
-      transform: translateY(-5px);
-    }
-
-    .project h3, .achievement h3 {
-      font-size: 1.5em;
-      color: #1e2a3a;
-    }
-
-    .project p, .achievement p {
-      font-size: 1em;
-      color: #666;
-      margin-top: 10px;
-    }
-
-    /* Contact Section */
-    .contact a {
-      display: inline-block;
-      margin: 10px;
-      color: #1e2a3a;
+    nav a {
+      color: white;
       text-decoration: none;
-      font-size: 1.1em;
-      border: 2px solid #1e2a3a;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: all 0.3s;
+      font-weight: 500;
     }
-
-    .contact a:hover {
-      background-color: #1e2a3a;
-      color: white;
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #1e2a3a;
-      color: red;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 1em;
-    }
-
-    /* Image Styles */
-    .bio-image {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      margin-top: 20px;
-      border: 4px solid #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Search Box Container */
-    .search-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* Search Input Style */
-    .search-container input {
-      padding: 8px 15px;
-      font-size: 14px;
-      border-radius: 20px;
-      border: 2px solid #ddd;
-      outline: none;
-      transition: all 0.3s;
-      background-color: #f5f5f5;
-    }
-
-    /* Search Button Style */
-    .search-container button {
-      padding: 8px 15px;
-      background-color: #007bff;
+    .contact-btn {
+      background-color: white;
+      color: black;
       border: none;
-      color: white;
-      font-size: 14px;
-      border-radius: 20px;
+      padding: 10px 20px;
+      border-radius: 100px;
       cursor: pointer;
-      transition: all 0.3s;
     }
-
-    /* Button Hover Effect */
-    .search-container button:hover {
-      background-color: #0056b3;
+    section {
+      padding: 40px 20px;
+      text-align: center;
     }
-
-    /* Focus Effect for Input */
-    .search-container input:focus {
-      border-color: #007bff;
-      background-color: #ffffff;
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
     }
-
-        .logo {
-      width: 150px; /* Adjust the size */
-      height: 150px; /* Adjust the size */
-      border-radius: 50%; /* Makes it a circle */
-      overflow: hidden; /* Ensures the image fits in the circle */
-      border: 5px solid #fff; /* Optional: adds a border around the circle */
+    .skills img, .learning img, .other-skills img {
+      width: 50px;
+      margin: 10px;
     }
-
-    .logo img {
+    .portfolio-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .portfolio-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .portfolio-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+    .portfolio-item p {
+      font-size: 1rem;
+      color: #333;
+    }
+    footer {
+      padding: 40px;
+      background: #000;
+      color: #fff;
+      text-align: center;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ensures the image covers the whole circle without distortion */
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
     }
-
+    .contact-form button {
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        text-align: left;
+      }
+      header .info {
+        flex: 1;
+        max-width: 500px;
+      }
+      header .photo {
+        flex: 1;
+        text-align: right;
+      }
+      nav {
+        position: absolute;
+        top: 50px;
+        right: 40px;
+      }
+    }
   </style>
 </head>
 <body>
-
-
-  <header>
-    <div class="logo">
-      <img src="photo1.png" alt="Its me" />
-    </div>
-    <h1>Jahad Abdulla</h1><br>
-    <p>Engineer | Innovator | Creator</p>
-    <div class="search-container">
-        <!-- Simple search form -->
-        <form action="search.html" method="GET">
-          <input type="text" name="q" placeholder="Search..." />
-          <button type="submit">Search</button>
+    <header>
+        <div class="logo">JrTesla</div>
+        <div class="info">
+          <p>Hi, I am</p>
+          <h1>Jahad Abdulla</h1>
+          <h2>AI/ML Engineering Student</h2>
+          <div class="socials">
+            <a href="mailto:cahadabdulla@gmail.com"><img src="https://img.icons8.com/ios-filled/30/email.png" alt="email"></a>
+            <a href="https://github.com/JrTesla611"><img src="https://img.icons8.com/ios-filled/30/github.png" alt="github"></a>
+            <a href="https://www.instagram.com/jahadabdulla/"><img src="https://img.icons8.com/ios-filled/30/000000/instagram-new.png" alt="Instagram"></a>
+          </div>
+        </div>
+        <div class="photo">
+          <img src="photo1.png" alt="Jahad Abdulla" style="max-height: 500px;" />
+        </div>
+        <nav>
+          <a href="#">About me</a>
+          <a href="#">Skills</a>
+          <a href="#">Portfolio</a>
+          <button class="contact-btn">CONTACT ME</button>
+        </nav>
+      </header>
+    
+      <section>
+        <h2>About Me</h2>
+        <p>Hi! My name is Jahad Abdulla, and I’m a 7th grader from Baku, Azerbaijan. From a young age, I’ve always been fascinated by how things work, especially when it comes to technology and innovation. Whether it’s electronics, robotics, or creating new gadgets, I’ve always loved diving into projects that allow me to explore the endless possibilities of the tech world.</p>
+        <p>As a kid, I spent countless hours tinkering with toys, figuring out how they worked, and often finding ways to improve them or turn them into something completely new. Over time, this curiosity grew into a strong passion for engineering and robotics. I started learning about how machines are built and how they can be programmed to do amazing things. I even began building my own robots and experimenting with different types of sensors and microcontrollers like Arduino and Raspberry Pi.</p>
+        <p>In school, I’m always looking for opportunities to learn more about science, technology, and engineering. I enjoy participating in hands-on projects, and I love being part of groups that work on exciting tech challenges. One of my goals is to join competitions like Teknofest and others, where I can showcase my projects and learn from other young engineers and innovators. My favorite subjects are STEM (Science, Technology, Engineering, and Math) because they give me the chance to apply what I’m learning to real-world problems.</p>
+        <p>Apart from robotics, I’m also interested in artificial intelligence (AI) and how it can be used to make machines smarter and more efficient. I’m currently working on a project where I’m using AI to help robots recognize objects and make decisions on their own. It’s amazing to see how technology is evolving and how much we can do with the right tools and creativity.</p>
+        <p>Another big passion of mine is aviation. I’m fascinated by airplanes, rockets, and anything that can fly. I love studying how aircraft are designed, how they overcome the forces of nature, and how engineering makes flight possible. Lately, I’ve been working on projects that combine my love for robotics and aviation, like building small flying drones and designing miniature jet models. In the future, I dream of contributing to the world of aerospace engineering and helping create the next generation of smart, sustainable aircraft.</p>
+        <p>I believe that technology is the key to solving many of the world’s problems, and I want to be part of that change. Whether it’s developing new sustainable energy solutions, building smarter robots, or creating better ways to connect people, I want my work to have a positive impact on the world. That’s why I’m always pushing myself to learn new skills, try new things, and take on bigger challenges.</p>
+        <p>In my free time, I love reading books, watching tech documentaries, and keeping up with the latest trends in robotics, AI, and aviation. I’m also a big fan of video games and like to see how they incorporate technology and design into their gameplay. I enjoy playing games that involve strategy and problem-solving, as they help me think critically and approach problems from different angles.</p>
+        <p>As I continue to learn and grow, I’m excited about the future and all the possibilities that lie ahead. I know that there will be challenges along the way, but I’m determined to keep working hard and pushing the boundaries of what’s possible. My dream is to one day become an engineer, inventor, and leader in the field of technology, and to inspire others, especially young people, to pursue their passions and never stop learning.</p>
+        <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can’t wait to see where this journey takes me!</p>
+      </section>
+    
+      <section>
+        <h2>Skills</h2>
+        <div class="skills">
+          <img src="https://img.icons8.com/color/48/html-5--v1.png" alt="HTML5">
+          <img src="https://img.icons8.com/color/48/css3.png" alt="CSS3">
+          <img src="https://img.icons8.com/color/48/javascript--v1.png" alt="JavaScript">
+          <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python">
+          <img src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="Java">
+        </div>
+        <h3>Learning:</h3>
+        <div class="learning">
+          <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="C++">
+          <img src="https://img.icons8.com/ios-filled/50/000000/c.png" alt="C">
+        </div>
+        <h3>Other Skills:</h3>
+        <div class="other-skills">
+          <img src="https://img.icons8.com/color/48/great-britain.png
+          " alt="English B1/B2">
+        </div>
+      </section>
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-items">
+          <div class="portfolio-item">
+            <h3>1st Place – School Rocket Competition</h3>
+            <p>Won 1st place in the school-level rocket competition in 2024.</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>3rd Place – Robofest International</h3>
+            <p>Secured 3rd place in Robofest International 2023, showcasing robotics innovation.</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>3rd Place – SASMO</h3>
+            <p>Awarded 3rd place in the 2022 Singapore and Asian Schools Math Olympiad.</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>1st Place – Fibonacci</h3>
+            <p>Awarded 1st place in Fibonacci in 2025.</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>3rd Place – ITECX25</h3>
+            <p>Achieved 3rd place in the ITECX25 innovation competition in 2025.</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>Tedx – Why Should Students Use AI</h3>
+            <p>Talked about AI in TEDx Kaspi Liseyi Youth in 2024.</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>1st Place – Robotex</h3>
+            <p>Achieved 1st place in the Robotex Autonomous Car competition in 2025.</p>
+          </div>
+        </div>
+      </section>
+    
+      <section>
+        <h2>Contact</h2>
+        <form class="contact-form" action="https://formsubmit.co/cahadabdulla@gmail.com" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="phone" placeholder="Phone Number">
+          <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
         </form>
-      </div>
-  </header>
-
-  
-  
- 
-  
-  
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi! My name is Jahad Abdulla, and I’m a 7th grader from Baku, Azerbaijan. From a young age, I’ve always been fascinated by how things work, especially when it comes to technology and innovation. Whether it’s electronics, robotics, or creating new gadgets, I’ve always loved diving into projects that allow me to explore the endless possibilities of the tech world.</p>
-    <p>As a kid, I spent countless hours tinkering with toys, figuring out how they worked, and often finding ways to improve them or turn them into something completely new. Over time, this curiosity grew into a strong passion for engineering and robotics. I started learning about how machines are built and how they can be programmed to do amazing things. I even began building my own robots and experimenting with different types of sensors and microcontrollers like Arduino and Raspberry Pi.</p>
-    <p>In school, I’m always looking for opportunities to learn more about science, technology, and engineering. I enjoy participating in hands-on projects, and I love being part of groups that work on exciting tech challenges. One of my goals is to join competitions like Teknofest and others, where I can showcase my projects and learn from other young engineers and innovators. My favorite subjects are STEM (Science, Technology, Engineering, and Math) because they give me the chance to apply what I’m learning to real-world problems.</p>
-    <p>Apart from robotics, I’m also interested in artificial intelligence (AI) and how it can be used to make machines smarter and more efficient. I’m currently working on a project where I’m using AI to help robots recognize objects and make decisions on their own. It’s amazing to see how technology is evolving and how much we can do with the right tools and creativity.</p>
-    <p>Another big passion of mine is aviation. I’m fascinated by airplanes, rockets, and anything that can fly. I love studying how aircraft are designed, how they overcome the forces of nature, and how engineering makes flight possible. Lately, I’ve been working on projects that combine my love for robotics and aviation, like building small flying drones and designing miniature jet models. In the future, I dream of contributing to the world of aerospace engineering and helping create the next generation of smart, sustainable aircraft.</p>
-    <p>I believe that technology is the key to solving many of the world’s problems, and I want to be part of that change. Whether it’s developing new sustainable energy solutions, building smarter robots, or creating better ways to connect people, I want my work to have a positive impact on the world. That’s why I’m always pushing myself to learn new skills, try new things, and take on bigger challenges.</p>
-    <p>In my free time, I love reading books, watching tech documentaries, and keeping up with the latest trends in robotics, AI, and aviation. I’m also a big fan of video games and like to see how they incorporate technology and design into their gameplay. I enjoy playing games that involve strategy and problem-solving, as they help me think critically and approach problems from different angles.</p>
-    <p>As I continue to learn and grow, I’m excited about the future and all the possibilities that lie ahead. I know that there will be challenges along the way, but I’m determined to keep working hard and pushing the boundaries of what’s possible. My dream is to one day become an engineer, inventor, and leader in the field of technology, and to inspire others, especially young people, to pursue their passions and never stop learning.</p>
-    <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can’t wait to see where this journey takes me!</p>
-  </section>
-  
-
-  <!-- Interactive Timeline -->
-<section id="timeline">
-    <h2>My Journey</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>2022: First Robotics Project</h3>
-        <p>Designed and built my first autonomous robot, which could identify objects and perform simple tasks.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>2023: AI Integration</h3>
-        <p>Started integrating AI-based systems into my robotics projects, including using machine learning algorithms for object detection.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>2024: PCB Design & AI Server</h3>
-        <p>Worked on custom PCB designs for embedded systems and built a dedicated AI server with advanced cooling solutions.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>2025: Teknofest & Global Recognition</h3>
-        <p>Participated in Teknofest with an autonomous vehicle project and gained recognition in the tech community.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">
-        <h3>Robotics</h3>
-        <div class="skill-bar" style="width: 80%"></div>
-      </div>
-      <div class="skill">
-        <h3>AI & Machine Learning</h3>
-        <div class="skill-bar" style="width: 70%"></div>
-      </div>
-      <div class="skill">
-        <h3>Embedded Systems</h3>
-        <div class="skill-bar" style="width: 75%"></div>
-      </div>
-      <div class="skill">
-        <h3>PCB Design</h3>
-        <div class="skill-bar" style="width: 65%"></div>
-      </div>
-      <div class="skill">
-        <h3>All important Coding Languages</h3>
-        <div class="skill-bar" style="width: 65%"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="journey">
-    <h2 style="text-align: center; font-size: 30px; color: #333; margin-bottom: 20px;">My Journey To Teknofest</h2>
-    <div style="width: 100%; height: 200px; position: relative; background-color: #f4f4f4; border-radius: 10px; padding: 20px 0;">
-      
-      <!-- Timeline Ruler -->
-
-      
-      <!-- Milestone 1: Going to School -->
-      <div style="position: absolute; left: 5%; text-align: center; top: -50px; z-index: 1;">
-        <div style="font-size: 40px; color: #3498db;">🛠️</div>
-        <p style="font-size: 16px; color: #333;">Creating Team</p>
-      </div>
-      
-      <!-- Milestone 2: Learning Python -->
-      <div style="position: absolute; left: 25%; text-align: center; top: -50px; z-index: 1;">
-        <div style="font-size: 40px; color: #3498db;">🛠️</div>
-        <p style="font-size: 16px; color: #333;">ODR</p>
-      </div>
-      
-      <!-- Milestone 3: First Project -->
-      <div style="position: absolute; left: 45%; text-align: center; top: -50px; z-index: 1;">
-        <div style="font-size: 40px; color: #3498db;">💡</div>
-        <p style="font-size: 16px; color: #333;">PDR-</p>
-      </div>
-      
-      <!-- Milestone 4: Hackathons -->
-      <div style="position: absolute; left: 65%; text-align: center; top: -50px; z-index: 1;">
-        <div style="font-size: 40px; color: #3498db;">💡</div>
-        <p style="font-size: 16px; color: #333;">Presentation-</p>
-      </div>
-      
-      <!-- Milestone 5: Building Projects -->
-      <div style="position: absolute; left: 85%; text-align: center; top: -50px; z-index: 1;">
-        <div style="font-size: 40px; color: #3498db;">🏆</div>
-        <p style="font-size: 16px; color: #333;">Competetion-</p>
-      </div>
-      
-    </div>
-  </section>
-  
-
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Project Water Rocket</h3>
-        <p>I made a water rocket for a competition in my school.</p>
-      </div>
-      <div class="project">
-        <h3>Project Jarvis</h3>
-        <p>I'm making an AI assistant for me to help with daily tasks.</p>
-      </div>
-      <div class="project">
-        <h3>Project Hybrid Rocket</h3>
-        <p>I'm making a rocket that uses paraffin wax (fuel) and O2 (oxidizer).</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <div class="achievements">
-      <div class="achievement">
-        <h3>1st Place – School Rocket Competition</h3>
-        <p>Won 1st place in the school-level rocket competition in 2024.</p>
-      </div>
-      <div class="achievement">
-        <h3>3rd Place – Robofest International</h3>
-        <p>Secured 3rd place in Robofest International 2023, showcasing robotics innovation.</p>
-      </div>
-      <div class="achievement">
-        <h3>3rd Place – SASMO</h3>
-        <p>Awarded 3rd place in the 2022 Singapore and Asian Schools Math Olympiad.</p>
-      </div>
-      <div class="achievement">
-        <h3>1st Place – Fibonacci</h3>
-        <p>Awarded 1st place in Fibonacci in 2025.</p>
-      </div>
-      <div class="achievement">
-        <h3>3rd Place – ITECX25</h3>
-        <p>Achieved 3rd place in the ITECX25 innovation competition in 2025.</p>
-      </div>
-      <div class="achievement">
-        <h3>Tedx-Why Should Students Use AI</h3>
-        <p>Talked about AI in TEDx Kaspi Liseyi Youth in 2024.</p>
-      </div>
-      <div class="achievement">
-        <h3>1st Place – Robotex</h3>
-        <p>Achieved 1st place in the Robotex Autonomous Car competition in 2025.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <a href="mailto:cahadabdulla@gmail.com">Email Me</a>
-      <a href="https://x.com/AbdullaCahad" target="_blank">Twitter</a>
-      <a href="https://www.instagram.com/jahadabdulla/">Instagram</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Jahad Abdulla</p>
-    <p>All right reserved</p>
-  </footer>
-
+      </section>
+    
+      <footer>
+        <p>&copy; 2025 Jahad Abdulla. All Rights Reserved.</p>
+        <div class="socials">
+          <a href="https://github.com/JrTesla611"><img src="https://img.icons8.com/ios-filled/30/github.png" alt="GitHub"></a>
+          <a href="mailto:cahadabdulla@gmail.com"><img src="https://img.icons8.com/ios-filled/30/email.png" alt="Email"></a>
+        </div>
+      </footer>
 </body>
 </html>
-
