@@ -11,6 +11,40 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    /* Animation definitions */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideInFromLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInFromRight {
+      from { transform: translateX(50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInFromBottom {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
     body {
       background: #f1f1f1;
@@ -34,7 +68,10 @@
       left: 20px;
       font-size: 32px;
       font-weight: bold;
-      color: red;
+      color:red;
+    }
+    header .info {
+      animation: slideInFromLeft 1s ease-out;
     }
     header .info h1 {
       font-size: 2rem;
@@ -49,13 +86,21 @@
     }
     header .socials a {
       margin: 0 5px;
+      transition: transform 0.3s ease;
+    }
+    header .socials a:hover {
+      transform: scale(1.2);
     }
     header .socials img {
       width: 24px;
     }
+    header .photo {
+      animation: slideInFromRight 1s ease-out;
+    }
     header .photo img {
       max-height: 300px;
       margin-top: 20px;
+      animation: float 6s ease-in-out infinite;
     }
     nav {
       margin-top: 20px;
@@ -63,11 +108,27 @@
       flex-wrap: wrap;
       gap: 15px;
       justify-content: center;
+      animation: fadeIn 1.5s ease-out;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a:not(.contact-btn):after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    nav a:not(.contact-btn):hover:after {
+      width: 100%;
     }
     .contact-btn {
       background-color: white;
@@ -76,18 +137,74 @@
       padding: 10px 20px;
       border-radius: 100px;
       cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-btn:hover {
+      background-color: black;
+      color: white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     section {
       padding: 40px 20px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     section h2 {
       font-size: 1.8rem;
       margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    section h2:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background-color: #000;
+      bottom: -5px;
+      left: 25%;
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+    section.visible h2:after {
+      transform: scaleX(1);
     }
     .skills img, .learning img, .other-skills img {
       width: 50px;
       margin: 10px;
+      transition: transform 0.3s ease;
+    }
+    .skills img:hover, .learning img:hover, .other-skills img:hover {
+      transform: scale(1.2);
+    }
+    .skill-item {
+      display: inline-block;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      vertical-align: top;
+    }
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+    .skill-item h3 {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+    .skill-item p {
+      font-size: 0.9rem;
+      color: #555;
     }
     .portfolio-items {
       display: flex;
@@ -102,6 +219,12 @@
       max-width: 300px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: left;
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     }
     .portfolio-item h3 {
       font-size: 1.2rem;
@@ -117,6 +240,16 @@
       background: #000;
       color: #fff;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    footer .socials a {
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    footer .socials a:hover {
+      transform: rotate(10deg) scale(1.2);
     }
     .contact-form input,
     .contact-form textarea {
@@ -126,13 +259,28 @@
       margin: 10px auto;
       padding: 10px;
       border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #000;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      outline: none;
     }
     .contact-form button {
       padding: 10px 20px;
       background: #000;
       color: #fff;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     }
     @media (min-width: 768px) {
       header {
@@ -156,7 +304,7 @@
   </style>
 </head>
 <body>
-    <header>
+    <header id="home">
         <div class="info">
           <p>Hi, I am</p>
           <h1>Jahad Abdulla</h1>
@@ -171,44 +319,98 @@
           <img src="photo1.png" alt="Jahad Abdulla" style="max-height: 500px;" />
         </div>
         <nav>
-          <a href="#">About me</a>
-          <a href="#">Skills</a>
-          <a href="#">Portfolio</a>
-          <button class="contact-btn">CONTACT ME</button>
+          <a href="#about">About me</a>
+          <a href="#skills">Skills</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact" class="contact-btn">CONTACT ME</a>
         </nav>
       </header>
     
-      <section>
+      <section id="about">
         <h2>About Me</h2>
-        <p>Hi! My name is Jahad Abdulla, and I’m a 7th grader from Baku, Azerbaijan. From a young age, I’ve always been fascinated by how things work, especially when it comes to technology and innovation. Whether it’s electronics, robotics, or creating new gadgets, I’ve always loved diving into projects that allow me to explore the endless possibilities of the tech world.</p>
+        <p>Hi! My name is Jahad Abdulla, and I'm a 7th grader from Baku, Azerbaijan. From a young age, I've always been fascinated by how things work, especially when it comes to technology and innovation. Whether it's electronics, robotics, or creating new gadgets, I've always loved diving into projects that allow me to explore the endless possibilities of the tech world.</p>
         <p>As a kid, I spent countless hours tinkering with toys, figuring out how they worked, and often finding ways to improve them or turn them into something completely new. Over time, this curiosity grew into a strong passion for engineering and robotics. I started learning about how machines are built and how they can be programmed to do amazing things. I even began building my own robots and experimenting with different types of sensors and microcontrollers like Arduino and Raspberry Pi.</p>
-        <p>In school, I’m always looking for opportunities to learn more about science, technology, and engineering. I enjoy participating in hands-on projects, and I love being part of groups that work on exciting tech challenges. One of my goals is to join competitions like Teknofest and others, where I can showcase my projects and learn from other young engineers and innovators. My favorite subjects are STEM (Science, Technology, Engineering, and Math) because they give me the chance to apply what I’m learning to real-world problems.</p>
-        <p>Apart from robotics, I’m also interested in artificial intelligence (AI) and how it can be used to make machines smarter and more efficient. I’m currently working on a project where I’m using AI to help robots recognize objects and make decisions on their own. It’s amazing to see how technology is evolving and how much we can do with the right tools and creativity.</p>
-        <p>Another big passion of mine is aviation. I’m fascinated by airplanes, rockets, and anything that can fly. I love studying how aircraft are designed, how they overcome the forces of nature, and how engineering makes flight possible. Lately, I’ve been working on projects that combine my love for robotics and aviation, like building small flying drones and designing miniature jet models. In the future, I dream of contributing to the world of aerospace engineering and helping create the next generation of smart, sustainable aircraft.</p>
-        <p>I believe that technology is the key to solving many of the world’s problems, and I want to be part of that change. Whether it’s developing new sustainable energy solutions, building smarter robots, or creating better ways to connect people, I want my work to have a positive impact on the world. That’s why I’m always pushing myself to learn new skills, try new things, and take on bigger challenges.</p>
-        <p>In my free time, I love reading books, watching tech documentaries, and keeping up with the latest trends in robotics, AI, and aviation. I’m also a big fan of video games and like to see how they incorporate technology and design into their gameplay. I enjoy playing games that involve strategy and problem-solving, as they help me think critically and approach problems from different angles.</p>
-        <p>As I continue to learn and grow, I’m excited about the future and all the possibilities that lie ahead. I know that there will be challenges along the way, but I’m determined to keep working hard and pushing the boundaries of what’s possible. My dream is to one day become an engineer, inventor, and leader in the field of technology, and to inspire others, especially young people, to pursue their passions and never stop learning.</p>
-        <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can’t wait to see where this journey takes me!</p>
+        <p>In school, I'm always looking for opportunities to learn more about science, technology, and engineering. I enjoy participating in hands-on projects, and I love being part of groups that work on exciting tech challenges. One of my goals is to join competitions like Teknofest and others, where I can showcase my projects and learn from other young engineers and innovators. My favorite subjects are STEM (Science, Technology, Engineering, and Math) because they give me the chance to apply what I'm learning to real-world problems.</p>
+        <p>Apart from robotics, I'm also interested in artificial intelligence (AI) and how it can be used to make machines smarter and more efficient. I'm currently working on a project where I'm using AI to help robots recognize objects and make decisions on their own. It's amazing to see how technology is evolving and how much we can do with the right tools and creativity.</p>
+        <p>Another big passion of mine is aviation. I'm fascinated by airplanes, rockets, and anything that can fly. I love studying how aircraft are designed, how they overcome the forces of nature, and how engineering makes flight possible. Lately, I've been working on projects that combine my love for robotics and aviation, like building small flying drones and designing miniature jet models. In the future, I dream of contributing to the world of aerospace engineering and helping create the next generation of smart, sustainable aircraft.</p>
+        <p>I believe that technology is the key to solving many of the world's problems, and I want to be part of that change. Whether it's developing new sustainable energy solutions, building smarter robots, or creating better ways to connect people, I want my work to have a positive impact on the world. That's why I'm always pushing myself to learn new skills, try new things, and take on bigger challenges.</p>
+        <p>In my free time, I love reading books, watching tech documentaries, and keeping up with the latest trends in robotics, AI, and aviation. I'm also a big fan of video games and like to see how they incorporate technology and design into their gameplay. I enjoy playing games that involve strategy and problem-solving, as they help me think critically and approach problems from different angles.</p>
+        <p>As I continue to learn and grow, I'm excited about the future and all the possibilities that lie ahead. I know that there will be challenges along the way, but I'm determined to keep working hard and pushing the boundaries of what's possible. My dream is to one day become an engineer, inventor, and leader in the field of technology, and to inspire others, especially young people, to pursue their passions and never stop learning.</p>
+        <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can't wait to see where this journey takes me!</p>
       </section>
     
-      <section>
+      <section id="skills">
         <h2>Skills</h2>
         <div class="skills">
-          <img src="https://img.icons8.com/color/48/html-5--v1.png" alt="HTML5">
-          <img src="https://img.icons8.com/color/48/css3.png" alt="CSS3">
-          <img src="https://img.icons8.com/color/48/javascript--v1.png" alt="JavaScript">
-          <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python">
-          <img src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="Java">
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios-filled/50/000000/project-management.png" alt="Project Management">
+            <h3>Project Management</h3>
+            <p>Ability to plan, execute and complete projects.</p>
+          </div>
+          
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios-filled/50/000000/conference-call.png" alt="Leadership">
+            <h3>Leadership</h3>
+            <p>Ability to motivate and lead teams.</p>
+          </div>
+          
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios-filled/50/000000/communication.png" alt="Communication">
+            <h3>Communication</h3>
+            <p>Ability to communicate effectively and make presentations.</p>
+          </div>
+          
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios/50/000000/idea.png" alt="Problem Solving Icon" />
+            <h3>Problem Solving</h3>
+            <p>Ability to analyze complex problems and produce solutions.</p>
+          </div>
+          
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios/50/000000/graph-report.png" alt="Analytical Thinking Icon" />
+            <h3>Analytical Thinking</h3>
+            <p>Ability to analyze data and make strategic decisions.</p>
+          </div>
+          
+          
+          
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios-filled/50/000000/code.png" alt="Technical Skills">
+            <h3>Technical Skills</h3>
+            <p>Ability to use relevant software and tools.</p>
+          </div>
         </div>
-        <h3>Learning:</h3>
+        
+        <h3>Technical Expertise:</h3>
         <div class="learning">
-          <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="C++">
-          <img src="https://img.icons8.com/ios-filled/50/000000/c.png" alt="C">
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios-filled/50/000000/robot.png" alt="Robotics">
+            <h3>Robotics</h3>
+            <p>Experience with Arduino, Raspberry Pi, and various sensors for building autonomous robots and mechanical systems.</p>
+          </div>
+          
+          <div class="skill-item">
+            <img src="https://img.icons8.com/ios-filled/50/000000/artificial-intelligence.png" alt="AI">
+            <h3>Artificial Intelligence</h3>
+            <p>Working knowledge of machine learning concepts, computer vision, and implementing AI in robotic applications.</p>
+          </div>
         </div>
-        <h3>Other Skills:</h3>
+        
+        <h3>Languages:</h3>
         <div class="other-skills">
-          <img src="https://img.icons8.com/color/48/great-britain.png
-          " alt="English B1/B2">
+          <div class="skill-item">
+            <img src="https://img.icons8.com/color/48/azerbaijan.png" alt="-">
+            <h3>Azerbaijan Language</h3>
+            <p>C1-C2 Level</p>
+            <img src="https://img.icons8.com/color/48/great-britain.png" alt="-">
+            <h3>English</h3>
+            <p>B1-B2 Level (Intermediate)</p>
+            <img src="https://img.icons8.com/color/48/russian-federation.png" alt="-">
+            <h3>Russian</h3>
+            <p>A1-A2 Level</p>
+          </div>
+        </div>
+          </div>
         </div>
       </section>
       <section id="portfolio">
@@ -245,23 +447,76 @@
         </div>
       </section>
     
-      <section>
+      <section id="contact">
         <h2>Contact</h2>
-        <form class="contact-form" action="https://formsubmit.co/cahadabdulla@gmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/cahadabdulla@gmail.com" method="POST" id="contactForm">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="email" name="email" placeholder="Your Email" required>
           <input type="text" name="phone" placeholder="Phone Number">
           <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-          <button type="submit">Send Message</button>
+          <button type="button" id="submitBtn">Send Message</button>
         </form>
       </section>
     
       <footer>
         <p>&copy; 2025 Jahad Abdulla. All Rights Reserved.</p>
         <div class="socials">
-          <a href="https://github.com/JrTesla611"><img src="https://img.icons8.com/ios-filled/30/github.png" alt="GitHub"></a>
-          <a href="mailto:cahadabdulla@gmail.com"><img src="https://img.icons8.com/ios-filled/30/email.png" alt="Email"></a>
+          <a href="https://github.com/JrTesla611"><img src="https://img.icons8.com/ios-filled/30/ffffff/github.png" alt="GitHub"></a>
+          <a href="mailto:cahadabdulla@gmail.com"><img src="https://img.icons8.com/ios-filled/30/ffffff/email.png" alt="Email"></a>
         </div>
       </footer>
+
+    <script>
+      // Make the contact button work like a regular link
+      document.addEventListener('DOMContentLoaded', function() {
+        // Handle navigation smooth scrolling
+        const contactBtn = document.querySelector('.contact-btn');
+        if (contactBtn) {
+          contactBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        }
+        
+        // Handle form submission
+        const submitBtn = document.getElementById('submitBtn');
+        const contactForm = document.getElementById('contactForm');
+        
+        if (submitBtn && contactForm) {
+          submitBtn.addEventListener('click', function(e) {
+            // Check form validity
+            if (contactForm.checkValidity()) {
+              // Submit the form only when the button is clicked
+              contactForm.submit();
+            } else {
+              // Trigger HTML5 validation
+              contactForm.reportValidity();
+            }
+          });
+        }
+        
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.15
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+      });
+    </script>
 </body>
 </html>
