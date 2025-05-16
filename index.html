@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -62,13 +62,22 @@
       position: relative;
       text-align: center;
     }
-    .logo {
+    .header-top {
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      width: 100%;
+    }
+    .logo {
       font-size: 32px;
       font-weight: bold;
-      color:red;
+      color: red;
+      z-index: 10;
     }
     header .info {
       animation: slideInFromLeft 1s ease-out;
@@ -103,11 +112,10 @@
       animation: float 6s ease-in-out infinite;
     }
     nav {
-      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
-      justify-content: center;
+      justify-content: flex-end;
       animation: fadeIn 1.5s ease-out;
     }
     nav a {
@@ -295,16 +303,124 @@
         flex: 1;
         text-align: right;
       }
+    }
+    .sticky-nav {
+      position: fixed;
+      top: -80px; /* Start off-screen */
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: top 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+    }
+    
+    .sticky-nav.visible {
+      top: 0;
+    }
+    
+    .sticky-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .sticky-nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    .sticky-menu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .sticky-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .sticky-menu a:not(.contact-btn-small):after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+    
+    .sticky-menu a:not(.contact-btn-small):hover:after,
+    .sticky-menu a.active:not(.contact-btn-small):after {
+      width: 100%;
+    }
+    
+    .contact-btn-small {
+      background-color: #000;
+      color: white !important;
+      padding: 8px 15px;
+      border-radius: 100px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-btn-small:hover {
+      background-color: #333;
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 767px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
       nav {
-        position: absolute;
-        top: 50px;
-        right: 40px;
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      
+      .sticky-menu {
+        gap: 10px;
+      }
+      
+      .sticky-menu a {
+        font-size: 14px;
+      }
+      
+      .contact-btn-small {
+        padding: 6px 10px;
+        font-size: 12px;
       }
     }
   </style>
 </head>
 <body>
     <header id="home">
+        <div class="header-top">
+          <div class="logo"></div>
+          <nav>
+            <a href="#about">About me</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact" class="contact-btn">CONTACT ME</a>
+          </nav>
+        </div>
         <div class="info">
           <p>Hi, I am</p>
           <h1>Jahad Abdulla</h1>
@@ -318,13 +434,18 @@
         <div class="photo">
           <img src="photo1.png" alt="Jahad Abdulla" style="max-height: 500px;" />
         </div>
-        <nav>
-          <a href="#about">About me</a>
-          <a href="#skills">Skills</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact" class="contact-btn">CONTACT ME</a>
-        </nav>
       </header>
+      <div class="sticky-nav" id="stickyNav">
+        <div class="container">
+          <div class="logo">Jahad Abdulla</div>
+          <nav class="sticky-menu">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact" class="contact-btn-small">Contact Me</a>
+          </nav>
+        </div>
+      </div>
     
       <section id="about">
         <h2>About Me</h2>
@@ -408,8 +529,6 @@
             <img src="https://img.icons8.com/color/48/russian-federation.png" alt="-">
             <h3>Russian</h3>
             <p>A1-A2 Level</p>
-          </div>
-        </div>
           </div>
         </div>
       </section>
@@ -517,6 +636,75 @@
           observer.observe(section);
         });
       });
+      document.addEventListener('DOMContentLoaded', function() {
+    const stickyNav = document.getElementById('stickyNav');
+    const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('.sticky-menu a');
+    
+    function handleScroll() {
+      // Show/hide sticky navbar based on scroll position
+      if (window.scrollY > header.offsetHeight - 100) {
+        stickyNav.classList.add('visible');
+      } else {
+        stickyNav.classList.remove('visible');
+      }
+      
+      // Update active menu item
+      updateActiveNavLink();
+    }
+    
+    function updateActiveNavLink() {
+      // Get current scroll position
+      const scrollPosition = window.scrollY;
+      
+      // Get all sections
+      const sections = document.querySelectorAll('section');
+      
+      // Find which section is currently in view
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          // Remove active class from all links
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Add active class to current link
+          const currentLink = document.querySelector(`.sticky-menu a[href="#${sectionId}"]`);
+          if (currentLink) {
+            currentLink.classList.add('active');
+          }
+        }
+      });
+    }
+    
+    // Add click event listeners to each nav link for smooth scrolling
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+          // Smooth scroll to target section with offset for sticky navbar
+          window.scrollTo({
+            top: targetSection.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initialize on page load
+    handleScroll();
+  });
     </script>
+
 </body>
 </html>
