@@ -1,522 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jahad Abdulla | AI/ML Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-    }
-    
-    /* Animation definitions */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes slideInFromLeft {
-      from { transform: translateX(-50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideInFromRight {
-      from { transform: translateX(50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideInFromBottom {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-    body {
-      background: #f1f1f1;
-      color: #111;
-    }
-    header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(120deg, #eaeaea 50%, #000 50%);
-      color: #000;
-      padding: 40px;
-      min-height: 100vh;
-      position: relative;
-      text-align: center;
-    }
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 32px;
-      font-weight: bold;
-      color:red;
-    }
-    header .info {
-      animation: slideInFromLeft 1s ease-out;
-    }
-    header .info h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    header .info h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
-    header .socials {
-      margin-top: 20px;
-    }
-    header .socials a {
-      margin: 0 5px;
-      transition: transform 0.3s ease;
-    }
-    header .socials a:hover {
-      transform: scale(1.2);
-    }
-    header .socials img {
-      width: 24px;
-    }
-    header .photo {
-      animation: slideInFromRight 1s ease-out;
-    }
-    header .photo img {
-      max-height: 300px;
-      margin-top: 20px;
-      animation: float 6s ease-in-out infinite;
-    }
-    nav {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      animation: fadeIn 1.5s ease-out;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    nav a:not(.contact-btn):after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -3px;
-      left: 0;
-      background-color: white;
-      transition: width 0.3s ease;
-    }
-    nav a:not(.contact-btn):hover:after {
-      width: 100%;
-    }
-    .contact-btn {
-      background-color: white;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .contact-btn:hover {
-      background-color: black;
-      color: white;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-    section {
-      padding: 40px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-    }
-    section h2:after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 3px;
-      background-color: #000;
-      bottom: -5px;
-      left: 25%;
-      transform: scaleX(0);
-      transition: transform 0.5s ease;
-    }
-    section.visible h2:after {
-      transform: scaleX(1);
-    }
-    .skills img, .learning img, .other-skills img {
-      width: 50px;
-      margin: 10px;
-      transition: transform 0.3s ease;
-    }
-    .skills img:hover, .learning img:hover, .other-skills img:hover {
-      transform: scale(1.2);
-    }
-    .skill-item {
-      display: inline-block;
-      width: 250px;
-      margin: 15px;
-      padding: 15px;
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      vertical-align: top;
-    }
-    .skill-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-    .skill-item h3 {
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-    .skill-item p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    .portfolio-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .portfolio-item {
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 300px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: left;
-      transition: all 0.3s ease;
-      transform: scale(1);
-    }
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
-    }
-    .portfolio-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #111;
-    }
-    .portfolio-item p {
-      font-size: 1rem;
-      color: #333;
-    }
-    footer {
-      padding: 40px;
-      background: #000;
-      color: #fff;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    footer .socials a {
-      margin: 0 10px;
-      transition: transform 0.3s ease;
-      display: inline-block;
-    }
-    footer .socials a:hover {
-      transform: rotate(10deg) scale(1.2);
-    }
-    .contact-form input,
-    .contact-form textarea {
-      display: block;
-      width: 100%;
-      max-width: 400px;
-      margin: 10px auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #000;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      outline: none;
-    }
-    .contact-form button {
-      padding: 10px 20px;
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .contact-form button:hover {
-      background: #333;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    }
-    @media (min-width: 768px) {
-      header {
-        flex-direction: row;
-        text-align: left;
-      }
-      header .info {
-        flex: 1;
-        max-width: 500px;
-      }
-      header .photo {
-        flex: 1;
-        text-align: right;
-      }
-      nav {
-        position: absolute;
-        top: 50px;
-        right: 40px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Pro - Premium Medical Supplies & Equipment</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --accent-green: #059669;
+            --light-green: #d1fae5;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --gray: #64748b;
+            --dark-gray: #334155;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            image-orientation: 30px;
+            font-size: 32px;
+            margin-right: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .nav-item:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .nav-item.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--light-blue), var(--light-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-blue);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(45deg, var(--light-blue), var(--light-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--primary-blue);
+        }
+
+        .stats {
+            background: var(--light-gray);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Form */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header id="home">
-        <div class="info">
-          <p>Hi, I am</p>
-          <h1>Jahad Abdulla</h1>
-          <h2>AI/ML Engineering Student</h2>
-          <div class="socials">
-            <a href="mailto:cahadabdulla@gmail.com"><img src="https://img.icons8.com/ios-filled/30/email.png" alt="email"></a>
-            <a href="https://github.com/JrTesla611"><img src="https://img.icons8.com/ios-filled/30/github.png" alt="github"></a>
-            <a href="https://www.instagram.com/jahadabdulla/"><img src="https://img.icons8.com/ios-filled/30/000000/instagram-new.png" alt="Instagram"></a>
-          </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">⚕️</span>
+                Baycan
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item active" onclick="showPage('home')">Əsas Səhifə</li>
+                <li class="nav-item" onclick="showPage('products')">Məhsullar</li>
+                <li class="nav-item" onclick="showPage('about')">Haqqımızda</li>
+                <li class="nav-item" onclick="showPage('services')">Xidmətlərimiz</li>
+                <li class="nav-item" onclick="showPage('contact')">Əlaqə</li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
-        <div class="photo">
-          <img src="photo1.png" alt="Jahad Abdulla" style="max-height: 500px;" />
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Tibbi Ləvazimat və Avadanlıqlar</h1>
+                <p>Biz xəstələrə ən yaxşı qayğı göstərmək üçün yüksək keyfiyyətli tibbi avadanlıq və ləvazimatlarla təmin edirik.</p>
+                <button class="btn" onclick="showPage('products')">Məhsulları Kəşf Edin</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Niyə Baycan?</h2>
+                <p class="section-subtitle">Biz müstəsna xidmətlə ən yüksək keyfiyyətli tibbi ləvazimatları təqdim etməyə sadiqik</p>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">✓</div>
+                        <h3 class="service-title">Keyfiyyətə zəmanət verilir</h3>
+                        <p>Bütün məhsullar beynəlxalq tibbi standartlara və qaydalara cavab verir</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🚚</div>
+                        <h3 class="service-title">Sürətli Çatdırılma</h3>
+                        <p>Lazım olan zaman ləvazimatları əldə etmək üçün sürətli və etibarlı çatdırılma</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🏥</div>
+                        <h3 class="service-title">Hospital</h3>
+                        <p>Tibb müəssisələrinin etibar etdiyi peşəkar avadanlıq</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Səhiyyə Tərəfdaşları</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20</h3>
+                        <p>İlin Təcrübəsi</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1 Milyon+</h3>
+                        <p>Çatdırılmış Məhsul</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5 gün 
+                            9 saat </h3>
+                        <p>Müştəri Xidməti</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <nav>
-          <a href="#about">About me</a>
-          <a href="#skills">Skills</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact" class="contact-btn">CONTACT ME</a>
-        </nav>
-      </header>
-    
-      <section id="about">
-        <h2>About Me</h2>
-        <p>Hi! My name is Jahad Abdulla, and I'm a 7th grader from Baku, Azerbaijan. From a young age, I've always been fascinated by how things work, especially when it comes to technology and innovation. Whether it's electronics, robotics, or creating new gadgets, I've always loved diving into projects that allow me to explore the endless possibilities of the tech world.</p>
-        <p>As a kid, I spent countless hours tinkering with toys, figuring out how they worked, and often finding ways to improve them or turn them into something completely new. Over time, this curiosity grew into a strong passion for engineering and robotics. I started learning about how machines are built and how they can be programmed to do amazing things. I even began building my own robots and experimenting with different types of sensors and microcontrollers like Arduino and Raspberry Pi.</p>
-        <p>In school, I'm always looking for opportunities to learn more about science, technology, and engineering. I enjoy participating in hands-on projects, and I love being part of groups that work on exciting tech challenges. One of my goals is to join competitions like Teknofest and others, where I can showcase my projects and learn from other young engineers and innovators. My favorite subjects are STEM (Science, Technology, Engineering, and Math) because they give me the chance to apply what I'm learning to real-world problems.</p>
-        <p>Apart from robotics, I'm also interested in artificial intelligence (AI) and how it can be used to make machines smarter and more efficient. I'm currently working on a project where I'm using AI to help robots recognize objects and make decisions on their own. It's amazing to see how technology is evolving and how much we can do with the right tools and creativity.</p>
-        <p>Another big passion of mine is aviation. I'm fascinated by airplanes, rockets, and anything that can fly. I love studying how aircraft are designed, how they overcome the forces of nature, and how engineering makes flight possible. Lately, I've been working on projects that combine my love for robotics and aviation, like building small flying drones and designing miniature jet models. In the future, I dream of contributing to the world of aerospace engineering and helping create the next generation of smart, sustainable aircraft.</p>
-        <p>I believe that technology is the key to solving many of the world's problems, and I want to be part of that change. Whether it's developing new sustainable energy solutions, building smarter robots, or creating better ways to connect people, I want my work to have a positive impact on the world. That's why I'm always pushing myself to learn new skills, try new things, and take on bigger challenges.</p>
-        <p>In my free time, I love reading books, watching tech documentaries, and keeping up with the latest trends in robotics, AI, and aviation. I'm also a big fan of video games and like to see how they incorporate technology and design into their gameplay. I enjoy playing games that involve strategy and problem-solving, as they help me think critically and approach problems from different angles.</p>
-        <p>As I continue to learn and grow, I'm excited about the future and all the possibilities that lie ahead. I know that there will be challenges along the way, but I'm determined to keep working hard and pushing the boundaries of what's possible. My dream is to one day become an engineer, inventor, and leader in the field of technology, and to inspire others, especially young people, to pursue their passions and never stop learning.</p>
-        <p>I hope to continue building projects, exploring new technologies, and sharing my journey with others. I believe that anything is possible if you are curious, dedicated, and willing to learn. I can't wait to see where this journey takes me!</p>
-      </section>
-    
-      <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios-filled/50/000000/project-management.png" alt="Project Management">
-            <h3>Project Management</h3>
-            <p>Ability to plan, execute and complete projects.</p>
-          </div>
-          
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios-filled/50/000000/conference-call.png" alt="Leadership">
-            <h3>Leadership</h3>
-            <p>Ability to motivate and lead teams.</p>
-          </div>
-          
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios-filled/50/000000/communication.png" alt="Communication">
-            <h3>Communication</h3>
-            <p>Ability to communicate effectively and make presentations.</p>
-          </div>
-          
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios/50/000000/idea.png" alt="Problem Solving Icon" />
-            <h3>Problem Solving</h3>
-            <p>Ability to analyze complex problems and produce solutions.</p>
-          </div>
-          
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios/50/000000/graph-report.png" alt="Analytical Thinking Icon" />
-            <h3>Analytical Thinking</h3>
-            <p>Ability to analyze data and make strategic decisions.</p>
-          </div>
-          
-          
-          
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios-filled/50/000000/code.png" alt="Technical Skills">
-            <h3>Technical Skills</h3>
-            <p>Ability to use relevant software and tools.</p>
-          </div>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Məhsullarımız</h2>
+                <p class="section-subtitle">Bütün səhiyyə ehtiyacları üçün geniş çeşiddə tibbi ləvazimatlar və avadanlıqlar</p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">🩺</div>
+                        <div class="product-content">
+                            <h3 class="product-title">Diaqnostik Avadanlıq</h3>
+                            <p class="product-description">Stetoskoplar, qan təzyiqi monitorları və termometrlər daxil olmaqla təkmil diaqnostika vasitələri</p>
+                            <button class="btn btn-primary">Detallar</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">⚕️</div>
+                        <div class="product-content">
+                            <h3 class="product-title">Cərrahi Alətlər</h3>
+                            <p class="product-description">Müxtəlif tibbi prosedurlar və əməliyyatlar üçün nəzərdə tutulmuş dəqiq cərrahi alətlər.</p>
+                            <button class="btn btn-primary">Detallar</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🧤</div>
+                        <div class="product-content">
+                            <h3 class="product-title">Qoruyucu Avadanlıqlar</h3>
+                            <p class="product-description">Səhiyyə təhlükəsizliyi üçün əlcəklər, maskalar, xalatlar və üz qalxanları daxil olmaqla tam PPE həlləri.</p>
+                            <button class="btn btn-primary">Detallar</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">💊</div>
+                        <div class="product-content">
+                            <h3 class="product-title">Pharmaceuticals</h3>
+                            <p class="product-description">Wide range of medications and pharmaceutical supplies for various medical treatments.</p>
+                            <button class="btn btn-primary">Detallar</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🏥</div>
+                        <div class="product-content">
+                            <h3 class="product-title">Hospital Mebelləri</h3>
+                            <p class="product-description">Xəstəxana çarpayıları, müayinə masaları və xəstə stulları daxil olmaqla tibbi mebel.</p>
+                            <button class="btn btn-primary">Detallar</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🔬</div>
+                        <div class="product-content">
+                            <h3 class="product-title">Laboratoriya avadanlığı</h3>
+                            <p class="product-description">Tibbi sınaq və tədqiqat tətbiqləri üçün laboratoriya alətləri və ləvazimatları.</p>
+                            <button class="btn btn-primary">Detallar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Baycan Haqqında</h2>
+                <p class="section-subtitle">Keyfiyyətli tibbi ləvazimatlar vasitəsilə səhiyyənin yaxşılaşdırılmasına həsr olunub</p>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 20px;">Missiyamız</h3>
+                        <p>Baycanda biz ən yüksək keyfiyyətli tibbi ləvazimatlar və avadanlıqlar təqdim etməklə səhiyyə işçilərini dəstəkləməyə sadiqik. 2004-cü ildə əsası qoyulmuş, biz etibarlılıq, keyfiyyət və müstəsna müştəri xidməti üçün reputasiya qurmuşuq.</p>
+                        <br>
+                        <p>Biz səhiyyənin kritik mahiyyətini və etibarlı, yüksək keyfiyyətli tibbi ləvazimatlara malik olmağın vacibliyini başa düşürük. Buna görə də biz hər bir məhsulun ən ciddi tibbi standartlara cavab verməsini təmin etmək üçün birbaşa aparıcı istehsalçılarla işləyirik.</p>
+                        <br>
+                        <p>Səhiyyə mütəxəssisləri və təchizat zənciri üzrə ekspertlərdən ibarət komandamız tibb müəssisələrinin ehtiyac duyduqları zaman ehtiyac duyduqları ləvazimatlara çıxışını təmin etmək üçün yorulmadan çalışır.</p>
+                    </div>
+                    <div class="about-image">🏥</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Xidmətlərimiz</h2>
+                <p class="section-subtitle">Bütün tibbi təchizat ehtiyaclarınız üçün hərtərəfli həllər</p>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">📦</div>
+                        <h3 class="service-title">Təchizat Zəncirinin İdarə Edilməsi</h3>
+                        <p>Tibbi ləvazimatların ardıcıl mövcudluğunu təmin etmək üçün tədarük zənciri həlləri</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🔧</div>
+                        <h3 class="service-title">Avadanlıqlara texniki qulluq</h3>
+                        <p>Tibbi avadanlıqlara peşəkar texniki xidmət və kalibrləmə xidmətləri</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">📋</div>
+                        <h3 class="service-title">İnventar İdarəetmə</h3>
+                        <p>Ehtiyat səviyyələrini optimallaşdırmaq və tullantıları azaltmaq üçün ağıllı inventar həlləri</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🎓</div>
+                        <h3 class="service-title">Təlim və Dəstək</h3>
+                        <p>Tibbi avadanlıqların düzgün istifadəsi üçün hərtərəfli təlim proqramları</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">💰</div>
+                        <h3 class="service-title">Toplu Sifariş</h3>
+                        <p>Böyük səhiyyə müəssisələri üçün xüsusi qiymətlər və fərdi həllər</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Bizimlə əlaqə saxlayın</h2>
+                <p class="section-subtitle">Bütün tibbi təchizat ehtiyaclarınız üçün komandamızla əlaqə saxlayın</p>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Əlaqə Saxlayın</h3>
+                        <p style="margin-bottom: 30px;">Bütün tibbi təchizat tələblərinizlə sizə kömək etmək üçün buradayıq. Bu gün bizimlə əlaqə saxlayın!</p>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Ünvan</strong><br>
+                                                    <p> Rəşid Behbudov küçəsi, 54/2, AZ1014 , Bakı, Azərbaycan</p>
+
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>Telefon</strong><br>
+                                012 497 3580 / 012 497 3680 / 055 201 9507
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <div>
+                                <strong>E-poçt</strong><br>
+                                info@baycan.com
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">🕒</span>
+                            <div>
+                                <strong>İş saatları</strong><br>
+                                Bazar ertəsi - Cümə: 9:00 - 18:00<br>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Tam ad *</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-poçt ünvanı*</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="organization">Təşkilat</label>
+                                <input type="text" id="organization" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Mövzu *</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mesaj *</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Mesaj Göndər</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Baycan</h3>
+                    <p>Premium tibbi ləvazimat və avadanlıq üçün etibarlı tərəfdaşınız, 2004-cü ildən səhiyyə işçilərinə keyfiyyətli məhsullarla xidmət göstərir.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <p><a href="#" onclick="showPage('home')">Əsas Səhifə</a></p>
+                    <p><a href="#" onclick="showPage('products')">Məhsullar</a></p>
+                    <p><a href="#" onclick="showPage('about')">Haqqımızda</a></p>
+                    <p><a href="#" onclick="showPage('services')">Xidmətlərimiz</a></p>
+                    <p><a href="#" onclick="showPage('contact')">Əlaqə</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Məhsullar</h3>
+                    <p><a href="#">Diaqnostik Avadanlıq</a></p>
+                    <p><a href="#">Cərrahi Alətlər</a></p>
+                    <p><a href="#">Qoruyucu Avadanlıqlar</a></p>
+                    <p><a href="#">Laboratoriya avadanlığı</a></p>
+                    <p><a href="#">Hospital Mebelləri</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Əlaqə</h3>
+                    <p>📍 Rəşid Behbudov küçəsi, 54/2, AZ1014<br>Bakı, Azərbaycan</p>
+                    <p>📞 012 497 3580 / 012 497 3680 / 055 201 9507</p>
+                    <p>✉️ info@baycan.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Baycan LTD,MMC. Bütün hüquqlar qorunur.| Privacy Policy | Terms of Service</p>
+            </div>
         </div>
-        
-        <h3>Technical Expertise:</h3>
-        <div class="learning">
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios-filled/50/000000/robot.png" alt="Robotics">
-            <h3>Robotics</h3>
-            <p>Experience with Arduino, Raspberry Pi, and various sensors for building autonomous robots and mechanical systems.</p>
-          </div>
-          
-          <div class="skill-item">
-            <img src="https://img.icons8.com/ios-filled/50/000000/artificial-intelligence.png" alt="AI">
-            <h3>Artificial Intelligence</h3>
-            <p>Working knowledge of machine learning concepts, computer vision, and implementing AI in robotic applications.</p>
-          </div>
-        </div>
-        
-        <h3>Languages:</h3>
-        <div class="other-skills">
-          <div class="skill-item">
-            <img src="https://img.icons8.com/color/48/azerbaijan.png" alt="-">
-            <h3>Azerbaijan Language</h3>
-            <p>C1-C2 Level</p>
-            <img src="https://img.icons8.com/color/48/great-britain.png" alt="-">
-            <h3>English</h3>
-            <p>B1-B2 Level (Intermediate)</p>
-            <img src="https://img.icons8.com/color/48/russian-federation.png" alt="-">
-            <h3>Russian</h3>
-            <p>A1-A2 Level</p>
-          </div>
-        </div>
-          </div>
-        </div>
-      </section>
-      <section id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="portfolio-items">
-          <div class="portfolio-item">
-            <h3>1st Place – School Rocket Competition</h3>
-            <p>Won 1st place in the school-level rocket competition in 2024.</p>
-          </div>
-          <div class="portfolio-item">
-            <h3>3rd Place – Robofest International</h3>
-            <p>Secured 3rd place in Robofest International 2023, showcasing robotics innovation.</p>
-          </div>
-          <div class="portfolio-item">
-            <h3>3rd Place – SASMO</h3>
-            <p>Awarded 3rd place in the 2022 Singapore and Asian Schools Math Olympiad.</p>
-          </div>
-          <div class="portfolio-item">
-            <h3>1st Place – Fibonacci</h3>
-            <p>Awarded 1st place in Fibonacci in 2025.</p>
-          </div>
-          <div class="portfolio-item">
-            <h3>3rd Place – ITECX25</h3>
-            <p>Achieved 3rd place in the ITECX25 innovation competition in 2025.</p>
-          </div>
-          <div class="portfolio-item">
-            <h3>Tedx – Why Should Students Use AI</h3>
-            <p>Talked about AI in TEDx Kaspi Liseyi Youth in 2024.</p>
-          </div>
-          <div class="portfolio-item">
-            <h3>1st Place – Robotex</h3>
-            <p>Achieved 1st place in the Robotex Autonomous Car competition in 2025.</p>
-          </div>
-        </div>
-      </section>
-    
-      <section id="contact">
-        <h2>Contact</h2>
-        <form class="contact-form" action="https://formsubmit.co/cahadabdulla@gmail.com" method="POST" id="contactForm">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="text" name="phone" placeholder="Phone Number">
-          <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-          <button type="button" id="submitBtn">Send Message</button>
-        </form>
-      </section>
-    
-      <footer>
-        <p>&copy; 2025 Jahad Abdulla. All Rights Reserved.</p>
-        <div class="socials">
-          <a href="https://github.com/JrTesla611"><img src="https://img.icons8.com/ios-filled/30/ffffff/github.png" alt="GitHub"></a>
-          <a href="mailto:cahadabdulla@gmail.com"><img src="https://img.icons8.com/ios-filled/30/ffffff/email.png" alt="Email"></a>
-        </div>
-      </footer>
+    </footer>
 
     <script>
-      // Make the contact button work like a regular link
-      document.addEventListener('DOMContentLoaded', function() {
-        // Handle navigation smooth scrolling
-        const contactBtn = document.querySelector('.contact-btn');
-        if (contactBtn) {
-          contactBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#contact').scrollIntoView({
-              behavior: 'smooth'
-            });
-          });
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('navMenu').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
-        
-        // Handle form submission
-        const submitBtn = document.getElementById('submitBtn');
-        const contactForm = document.getElementById('contactForm');
-        
-        if (submitBtn && contactForm) {
-          submitBtn.addEventListener('click', function(e) {
-            // Check form validity
-            if (contactForm.checkValidity()) {
-              // Submit the form only when the button is clicked
-              contactForm.submit();
-            } else {
-              // Trigger HTML5 validation
-              contactForm.reportValidity();
-            }
-          });
+
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
         }
-        
-        // Intersection Observer for scroll animations
-        const sections = document.querySelectorAll('section');
-        const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.15
-        };
-        
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            event.target.reset();
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!navMenu.contains(event.target) && !toggle.contains(event.target)) {
+                navMenu.classList.remove('active');
             }
-          });
-        }, observerOptions);
-        
-        sections.forEach(section => {
-          observer.observe(section);
         });
-      });
+
+        // Smooth scroll effect for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'var(--white)';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
     </script>
 </body>
 </html>
