@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Python",
+    "icon": "https://img.icons8.com/color/48/000000/python--v1.png"
+  },
+  {
+    "name": "C++",
+    "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"
+  },
+  {
+    "name": "Java",
+    "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
+  },
+  {
+    "name": "HTML5",
+    "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
+  },
+  {
+    "name": "CSS3",
+    "icon": "https://img.icons8.com/color/48/000000/css3.png"
+  },
+  {
+    "name": "Git",
+    "icon": "https://img.icons8.com/color/48/000000/git.png"
+  },
+  {
+    "name": "GitHub",
+    "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
+  },
+  {
+    "name": "TensorFlow",
+    "icon": "https://img.icons8.com/color/48/000000/tensorflow.png"
+  },
+  {
+    "name": "PyTorch",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/PyTorch_logo_icon.svg/48px-PyTorch_logo_icon.svg.png"
+  },
+  {
+    "name": "Machine Learning",
+    "icon": "https://img.icons8.com/ios-filled/48/000000/artificial-intelligence.png"
+  },
+  {
+    "name": "OpenCV",
+    "icon": "https://img.icons8.com/ios/48/000000/artificial-intelligence.png"
+  },
+  {
+    "name": "YOLO",
+    "icon": "https://img.icons8.com/ios/48/000000/artificial-intelligence.png"
+  },
+  {
+    "name": "Arduino",
+    "icon": "https://img.icons8.com/color/48/000000/arduino.png"
+  },
+  {
+    "name": "Raspberry Pi",
+    "icon": "https://img.icons8.com/color/48/000000/raspberry-pi.png"
+  },
+  {
+    "name": "VS Code",
+    "icon": "https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"
+  },
+  {
+    "name": "Linux",
+    "icon": "https://img.icons8.com/color/48/000000/linux--v1.png"
+  },
+  {
+    "name": "Large Language Models (LLMs)",
+    "icon": "https://img.icons8.com/ios/48/000000/artificial-intelligence.png"
+  }
+]
